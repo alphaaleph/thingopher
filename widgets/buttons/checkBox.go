@@ -24,29 +24,5 @@ type CheckBox struct {
 	mnemonic  int
 	selected  bool
 	group     string
-	*Component
-}
-
-// LISTENERS
-
-// Action invokes the given method when the checkbox state is changed by mouse or keyboard event.
-func (cb *CheckBox) Action() {
-	panic("Not implemented yet")
-}
-
-// KEYBOARD
-
-// SpaceBar is used to Selects or deselects.
-func (cb *CheckBox) SpaceBar() {
-	panic("Not implemented yet")
-}
-
-// Tab is used to navigate forward.
-func (cb *CheckBox) Tab() {
-	panic("Not implemented yet")
-}
-
-// ShiftTab is used to navigate backwards.
-func (cb *CheckBox) ShiftTab() {
-	panic("Not implemented yet")
+	component Component
 }

@@ -21,22 +21,5 @@ type ToggleButton struct {
 	alignment Choice
 	mnemonic  int
 	selected  bool
-	*Component
-}
-
-// KEYBOARD
-
-// SpaceBar is used to activate the button.
-func (tb *ToggleButton) SpaceBar() {
-	panic("Not implemented yet")
-}
-
-// Tab is used to navigate forward.
-func (tb *ToggleButton) Tab() {
-	panic("Not implemented yet")
-}
-
-// ShiftTab is used to navigate backwards.
-func (tb *ToggleButton) ShiftTab() {
-	panic("Not implemented yet")
+	component Component
 }

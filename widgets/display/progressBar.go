@@ -18,5 +18,5 @@ type ProgressBar struct {
 	minimum     int
 	maximum     int
 	value       int
-	*Component
+	component   Component
 }

@@ -15,7 +15,7 @@ TabbedPane widget is the representation of a form's tabbed pane.
   		</tab>
   		<tab text="Two" alignment="right">
     		<textarea text="Two" />
-  		</tab>
+  		</tabve
   		<tab text="Three" enabled="false">
     		<textarea text="Three" />
   		</tab>
@@ -24,12 +24,5 @@ TabbedPane widget is the representation of a form's tabbed pane.
 type TabbedPane struct {
 	placement Choice
 	selected  int
-	*Component
-}
-
-// LISTENERS
-
-// Action invokes the method when the tabbedpane has changed its selected tab index.
-func (tp *TabbedPane) Action() {
-
+	component Component
 }

@@ -19,6 +19,6 @@ type Label struct {
 	icon      Icon
 	alignment Choice
 	mnemonic  int
-	for_      Component
-	*Component
+	for_      *Component
+	component Component
 }
