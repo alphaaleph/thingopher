@@ -1,6 +1,14 @@
 // Package widgets holds all the components supported by Thinggopher
 package widgets
 
+import (
+	"image/color"
+
+	"golang.org/x/image/font"
+
+	"theasilum.com/thingopher/properties"
+)
+
 /*
 Component is a parent structure for most Thingopher widgets. All components support the parameters listed below.
 	Parameters:
@@ -26,34 +34,33 @@ type Component struct {
 	enabled    bool
 	visible    bool
 	tooltip    string
-	font       Font
-	foreground Color
-	background Color
+	font       font.Style
+	foreground color.Color
+	background color.Color
 	width      int
 	height     int
 	colspan    int
 	rowspan    int
 	weightx    int
 	weighty    int
-	halign     Choice
-	valign     Choice
-	property   Property
-	*Component
+	halign     properties.ChoiceHorizontal
+	valign     properties.ChoiceVertical
+	property   properties.Property
 }
 
 // LISTENERS
 
 // Init is a method to invoke only once when the loading of the xml resource (including this component) is finished.
-func Init() {
+func (component *Component) Init() {
 	panic("Not implemented yet.")
 }
 
 // FocusLost invoked when a component loses the keyboard focus, thus it is no longer the focus owner.
-func FocusLost() {
+func (component *Component) FocusLost() {
 	panic("Not implemented yet.")
 }
 
 // FocusGained invoked when a component gains the keyboard focus, thus it is now the focus owner.
-func FocusGained() {
+func (component *Component) FocusGained() {
 	panic("Not implemented yet.")
 }
