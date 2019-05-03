@@ -29,9 +29,9 @@ gprogressbar widget is the representation of a form's progress bar.
 type gprogressbar struct {
 	component   w.GComponent
 	orientation p.GOrientation
-	minimum     int
-	maximum     int
-	value       int
+	minimum     uint8
+	maximum     uint8
+	value       uint8
 }
 
 // GProgressBar returns a progress bar object with default values.
