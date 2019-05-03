@@ -23,19 +23,19 @@ gmenubar widget is the representation of a form's data collection menu bar.
 	has a menuitem ('MenuItem') and a menu ('Menu'). The later's popup contains a menuitem with a selected checkbox
 	('CheckBox'), a separator, and a radio button ('RadioButton').
 
-		<panel columns="1" gap="4">
-  			<menubar weightx="1">
-    			<menu text="Menu">
-      				<menuitem text="MenuItem" icon="image.gif" />
-      				<menu text="Menu">
-        				<checkboxmenuitem text="CheckBox" selected="true" />
-        				<separator />
-        				<checkboxmenuitem text="RadioButton" group="group"/>
-      				</menu>
-    			</menu>
-  			</menubar>
-  			<textarea weighty="1" />
-		</panel>
+		<gpanel columns="1" gap="4">
+  			<gmenubar weightx="1">
+    			<gmenu text="Menu">
+      				<gmenuitem text="MenuItem" icon="image.gif" />
+      				<gmenu text="Menu">
+        				<gcheckboxmenuitem text="CheckBox" selected="true" />
+        				<gseparator />
+        				<gcheckboxmenuitem text="RadioButton" group="group"/>
+      				</gmenu>
+    			</gmenu>
+  			</gmenubar>
+  			<gtextarea weighty="1" />
+		</gpanel>
 */
 type gmenubar struct {
 	component w.GComponent

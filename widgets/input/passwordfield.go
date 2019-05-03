@@ -18,7 +18,7 @@ gpasswordfield widget is the representation of a form's data collection password
 
 	PasswordField is similar to TextField component, but does not show the original characters.
 
-		<passwordfield text="secret value" />
+		<gpasswordfield text="secret value" />
 */
 type gpasswordfield struct {
 	component w.GComponent
