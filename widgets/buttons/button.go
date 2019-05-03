@@ -16,14 +16,14 @@ gbutton widget is the representation of a form's button.
 		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
 						weighty, halign, and valign parameters from component.
 		icon		: The icon image that the checkbox displays.
+		mnemonic 	: Specifies the index of underlined char and a key combination (Alt + the char) which invokes the
+						(not necessarily focused, but enabled and visible) button's action listener. Default = -1.
 		alignment	: The alignment of the text and image similar to label. Possible values are: center, left, and
 						right. The default value is center. Icons are always displayed to the left of text (if any).
 						Default = center.
 		category	: Possible values are: normal, default, cancel, and link. The default value is normal. Default, and
 						cancel values are for dialog control. Link changes the appearance of button so that it
 						resembles HTML link. Default = normal.
-		mnemonic 	: Specifies the index of underlined char and a key combination (Alt + the char) which invokes the
-						(not necessarily focused, but enabled and visible) button's action listener. Default = -1.
 		text		: The text string that the button displays.
 
 	The following button displays a short text string and an image. Its content is on the left and centered vertically.
@@ -35,9 +35,9 @@ gbutton widget is the representation of a form's button.
 type gbutton struct {
 	component w.GComponent
 	icon      p.GIcon
+	mnemonic  int
 	alignment p.GAlignment
 	category  p.GCategory
-	mnemonic  int
 	text      string
 }
 

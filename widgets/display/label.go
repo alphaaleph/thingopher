@@ -18,10 +18,10 @@ glabel widget is the representation of a form's label.
 		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
 						weighty, halign, and valign parameters from component.
 		icon		: The icon image that the label displays.
+		mnemonic	: Specifies the underlined char in the label's text. Default = -1.
 		alignment	: The alignment of the label's content along the X axis, vertically is centered. Possible values
 						are: left, center, and right. The default value, if not set, is left. The image position
 						horizontally left, above, and right relative to the text. Default = left.
-		mnemonic	: Specifies the underlined char in the label's text. Default = -1.
 		text		: The text string that the label displays.
 
 	The following label displays a short text string and an image. Its content is centered both vertically and
@@ -33,8 +33,8 @@ type glabel struct {
 	owner     *GComponent
 	component w.GComponent
 	icon      p.GIcon
-	alignment p.GAlignment
 	mnemonic  int
+	alignment p.GAlignment
 	text      string
 }
 

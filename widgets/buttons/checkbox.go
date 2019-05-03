@@ -16,11 +16,11 @@ gcheckbox widget is the representation of a form's check box.
 		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
 						weighty, halign, and valign parameters from component.
 		icon		: The icon image that the checkbox displays.
-		selected	: The state of the checkbox. True if the checkbox is selected, false if it's not. Default = false.
-		alignment	: The alignment of the text and image similar to label. Possible values are: left, center, and
-						right. Default = center.
 		mnemonic	: Specifies the index of underlined char and a key combination (Alt + char) which change the
 						checkboxs's state and invokes the action listener. Default = -1.
+		alignment	: The alignment of the text and image similar to label. Possible values are: left, center, and
+						right. Default = center.
+		selected	: The state of the checkbox. True if the checkbox is selected, false if it's not. Default = false.
 		group		: Identifies the radio button group if not null. Only one radio button at a time can be selected.
 						User can set on a radio button, the selected button of the group will be set off (the group
 						members is searched only in the same parent).
@@ -36,9 +36,9 @@ gcheckbox widget is the representation of a form's check box.
 type gcheckbox struct {
 	component w.GComponent
 	icon      p.GIcon
-	selected  bool
-	alignment p.GAligment
 	mnemonic  int
+	alignment p.GAligment
+	selected  bool
 	group     string
 	text      string
 }

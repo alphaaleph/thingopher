@@ -23,7 +23,8 @@ gslider widget is the representation of a form's data collection slider.
 		unit		: The distance of the value change when using arrow buttons. Default = 5.
 		block		: The distance of the value change when using page buttons. Default = 25.
 
-	PasswordField is similar to TextField component, but does not show the original characters.
+	A slider lets the user graphically select a value by sliding a knob within a bounded interval, e.g. between 25 and
+	75.
 
 		<gslider minimum="25" maximum="75" value="50" orientation="vertical" />
 
