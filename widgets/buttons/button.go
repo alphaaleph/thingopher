@@ -35,8 +35,8 @@ gbutton widget is the representation of a form's button.
 type gbutton struct {
 	component w.Component
 	icon      p.Icon
-	alignment p.ACenter
-	category  p.CNormal
+	alignment p.Alignment
+	category  p.Category
 	mnemonic  int
 	text      string
 }
