@@ -32,10 +32,10 @@ gtextfield widget is the representation of a form's data collection text area.
 */
 type gtextfield struct {
 	component w.GComponent
-	alignment p.Alignment
 	end       uint
 	start     uint
 	columns   uint16
+	alignment p.Alignment
 	editable  bool
 	text      string
 }
