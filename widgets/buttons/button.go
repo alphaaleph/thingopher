@@ -33,10 +33,10 @@ gbutton widget is the representation of a form's button.
 		<gbutton text="www.thinlet.com" type="link" action="goHome" />
 */
 type gbutton struct {
-	component w.Component
-	icon      p.Icon
-	alignment p.Alignment
-	category  p.Category
+	component w.GComponent
+	icon      p.GIcon
+	alignment p.GAlignment
+	category  p.GCategory
 	mnemonic  int
 	text      string
 }

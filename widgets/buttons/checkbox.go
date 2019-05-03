@@ -34,10 +34,10 @@ gcheckbox widget is the representation of a form's check box.
 		<gcheckbox text="RadioButton" group="group"/>
 */
 type gcheckbox struct {
-	component w.Component
-	icon      p.Icon
+	component w.GComponent
+	icon      p.GIcon
 	selected  bool
-	alignment p.Aligment
+	alignment p.GAligment
 	mnemonic  int
 	group     string
 	text      string
