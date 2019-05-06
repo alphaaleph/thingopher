@@ -1,17 +1,19 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package layouts handles all panel related widgets.
 package layouts
 
 import w "ebonynaranja.com/thingopher/widgets"
 
-// GSeparator is the exported implementation of the separator widget
+// GSeparator is used to separate widgets into different areas.
 type GSeparator interface{}
 
 /*
-gseparator widget is the representation of a form's separators.
+gseparator parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
+		GComponent	: @see gcomponent.
 
 	Separator is a horizontal or a vertical line. The following panel has a button('Left'), a vertical separator line,
 	and a second button ('Right') in the first row, a horizontal separator in the second row, and the final button
@@ -26,10 +28,10 @@ gseparator widget is the representation of a form's separators.
 		</gpanel>
 */
 type gseparator struct {
-	component w.GComponent
+	w.GComponent
 }
 
-// GSeparator returns a panel object with default values.
-func GSeparator() *GSeparator {
-	return gseparator{}
+// NewSeparator returns a separator structure with default values.
+func NewSeparator() GSeparator {
+	return &gseparator{}
 }

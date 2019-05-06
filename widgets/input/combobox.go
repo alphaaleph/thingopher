@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package input handles all widgets that are used to collect information.
 package input
 
@@ -6,16 +10,14 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GComboBox is the exported implementation of the combo box widget
+// GComboBox supports a text field that has a drop-down list.
 type GComboBox interface{}
 
 /*
-gcombobox widget is the representation of a form's data collection combo box.
+gcombobox parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
-		textfield	: text, columns, editable, and aligment parameters from gtextfield.
+		GComponent	: @see gcomponent.
+		GTextField	: @see gtextfield.
 		icon		: he icon image that the combobox displays.
 		selected	: The index of the currently selected choice, value -1 indicates a custom edited value in an
 						editable box. Default = -1.
@@ -24,18 +26,18 @@ gcombobox widget is the representation of a form's data collection combo box.
 	it is editable.
 
 		<gcombobox text="ComboBox">
- 	 		<choice text="Choice" icon="image.gif" />
- 	 		<choice text="Disabled" enabled="false" />
+ 	 		<gchoice text="Choice" icon="image.gif" />
+ 	 		<gchoice text="Disabled" enabled="false" />
 		</gcombobox>
 */
 type gcombobox struct {
-	component w.GComponent
-	textfield GTextField
-	icon      p.GIcon
-	selected  int
+	w.GComponent
+	GTextField
+	icon     p.Icon
+	selected int
 }
 
-// GComboBox returns a combo box object with default values.
-func GComboBox() *GComboBox {
-	return gcombobox{selected: -1}
+// NewComboBox returns a combo box structure with default values.
+func NewComboBox() GComboBox {
+	return &gcombobox{selected: -1}
 }

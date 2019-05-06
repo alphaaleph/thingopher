@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package input handles all widgets that are used to collect information.
 package input
 
@@ -6,15 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GSlider is the exported implementation of the slider widget
+// GSlider lets a user select a value with a graphical interface.
 type GSlider interface{}
 
 /*
-gslider widget is the representation of a form's data collection slider.
+gslider parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
+		GComponent	: @see gcomponent.
 		orientation	: Possible values are: horizontal, and vertical. Default = horizontal.
 		minimum		: The slider's minimum value. Default = 0.
 		maximum		: The slider's maximum value. Default = 100.
@@ -31,7 +33,7 @@ gslider widget is the representation of a form's data collection slider.
 */
 type gslider struct {
 	component   w.GComponent
-	orientation p.GOrientation
+	orientation p.Orientation
 	minimum     uint8
 	maximum     uint8
 	value       uint8
@@ -39,7 +41,7 @@ type gslider struct {
 	block       uint8
 }
 
-// GSlider returns a slider object with default values.
-func GSlider() *GSlider {
-	return gslider{orientation: p.Horizontal, maximum: 100, unit: 5, block: 25}
+// NewSlider returns a slider structure with default values.
+func NewSlider() GSlider {
+	return &gslider{orientation: p.Horizontal, maximum: 100, unit: 5, block: 25}
 }

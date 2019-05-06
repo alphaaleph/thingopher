@@ -1,18 +1,17 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package input handles all widgets that are used to collect information.
 package input
 
-import (
-	i "ebonynaranja.com/thingopher/widgets/input"
-)
-
-// GMenu is the exported implementation of the menu widget
+// GMenu provides the management and selection of a single set of menu items, in a menu bar.
 type GMenu interface{}
 
 /*
-gmenu widget is the representation of a form's data collection menu.
+gmenu parameters:
 
-	Parameters:
-		combobox	: name, enabled, text, icon, alignment, tooltip, and property parameters similar to gcombobox.
+		GComboBox	: @see gcombobox.
 		mnemonic	: Specifies the underlined char and the key combination which selects the tab. Default = -1.
 
 	Menubar includes menu, and menu could contain menuitems, check or radio button items, separators, and menus.
@@ -32,11 +31,11 @@ gmenu widget is the representation of a form's data collection menu.
 		</gpanel>
 */
 type gmenu struct {
-	combobox    i.GComboBox
-	mnemonic    int
+	GComboBox
+	mnemonic int
 }
 
-// GMenu returns a menu object with default values.
-func GMenu() *GMenu {
-	return gmenu{mnemonic: -1}
+// NewMenu returns a menu structure with default values.
+func NewMenu() GMenu {
+	return &gmenu{mnemonic: -1}
 }

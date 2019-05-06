@@ -1,21 +1,22 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package buttons manage all related button widgets
 package buttons
 
 import (
-	p "ebonynaranja.com/thingopher/properties"
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GToggleButton is the exported implementation of the toggle button widget
+// GToggleButton is used to display checked/unchecked states.
 type GToggleButton interface{}
 
 /*
-gtogglebutton widget is the representation of a form's toggle button.
+gtogglebutton parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from component.
-		GCheckBox	: see GCheckBox parameters.
+		GComponent	: @see gcomponent.
+		GCheckBox	: @see gcheckbox.
 
 	An implementation of a two-state button, behaves as checkbox.
 
@@ -23,11 +24,11 @@ gtogglebutton widget is the representation of a form's toggle button.
 		<gtogglebutton text="ToggleButton" group="group"/>
 */
 type gtogglebutton struct {
-	component w.GComponent
+	w.GComponent
 	GCheckBox
 }
 
-// GToggleButton returns a toggle button object with default values.
-func GToggleButton() *GToggleButton {
-	return gtogglebutton{selected: false, alignment: p.ACenter, mnemonic: -1}
+// NewToggleButton returns a toggle button structure with default values.
+func NewToggleButton() GToggleButton {
+	return &gtogglebutton{}
 }

@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package input handles all widgets that are used to collect information.
 package input
 
@@ -5,15 +9,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GTextArea is the exported implementation of the text area widget
+// GTextArea is like a text field but supporting multiple lines.
 type GTextArea interface{}
 
 /*
-gtextarea widget is the representation of a form's data collection text area.
+gtextarea parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
+		GComponent	: @see gcomponent.
 		end			: End index of the selection, same as the caret position. Default = 0.
 		start		: Start index of the selection. Default = 0.
 		columns		: The number of visible letters in a column. Default = 0.
@@ -33,18 +35,18 @@ gtextarea widget is the representation of a form's data collection text area.
 		<gtextarea text="TextArea" wrap="true" columns="40" rows="2" />
 */
 type gtextarea struct {
-	component w.GComponent
-	end       uint
-	start     uint
-	columns   uint16
-	rows      uint16
-	border    bool
-	editable  bool
-	wrap      bool
-	text      string
+	w.GComponent
+	end      uint
+	start    uint
+	columns  uint16
+	rows     uint16
+	border   bool
+	editable bool
+	wrap     bool
+	text     string
 }
 
-// GTextArea returns a slider object with default values.
-func GTextArea() *GTextArea {
+// NewTextArea returns a text area structure with default values.
+func NewTextArea() GTextArea {
 	return gtextarea{border: true, editable: true, wrap: false}
 }

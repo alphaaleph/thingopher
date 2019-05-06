@@ -5,5 +5,5 @@
 // Package properties defines types used by the widgets parameters.
 package properties
 
-// Icon manages the images that widgets display.
-type Icon interface{}
+// Property binds an arbitrary key/value client property (or properties).
+type Property interface{}

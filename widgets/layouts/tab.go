@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package layouts handles all panel related widgets.
 package layouts
 
@@ -5,14 +9,13 @@ import (
 	i "ebonynaranja.com/thingopher/widgets/input"
 )
 
-// GTab is the exported implementation of the tab widget
+// GTab manages a single tab from a tabbed pane control.
 type GTab interface{}
 
 /*
-gtab widget is the representation of a form's tab.
+gtab parameters:
 
-	Parameters:
-		combobox	: name, enabled, text, icon, alignment, tooltip, and property parameters similar to gcombobox.
+		GComboBox	: @see gcombobox.
 		mnemonic	: Specifies the underlined char and the key combination which selects the tab. Default = -1.
 
 	Tabs are identified in the component's list as 'gtab', and components with the 'gcomponent' key.
@@ -30,11 +33,11 @@ gtab widget is the representation of a form's tab.
 		</gtabbedpane>
 */
 type gtab struct {
-	combobox i.GComboBox
+	i.GComboBox
 	mnemonic int
 }
 
-// GTab returns a tab object with default values.
-func GTab() *GTab {
-	return gtab{mnemonic: -1}
+// NewTab returns a tab structure with default values.
+func NewTab() GTab {
+	return &gtab{mnemonic: -1}
 }

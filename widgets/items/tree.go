@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package items handles all widgets that can hold data.
 package items
 
@@ -6,16 +10,14 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GTree is the exported implementation of the tree widget
+// GTree is a hierarchical outline view of data.
 type GTree interface{}
 
 /*
-gtree widget is the representation of a form's data tree.
+gtree parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
-		list		: line, and selection parameters from list.
+		GComponent	: @see gcomponent.
+		GList		: @see glist.
 		selection	: Possible values are: single, interval, and multiple. For the default single value the selection
 						can only contain one path at a time, for interval the selection can only be contiguous (of the
 						currently visible nodes), and for the multiple value the selection can contain any number of
@@ -37,13 +39,13 @@ gtree widget is the representation of a form's data tree.
 		</gtree>
 */
 type gtree struct {
-	component w.GComponent
-	list      GList
-	selection p.GSelection
+	w.GComponent
+	GList
+	selection p.Selection
 	angle     bool
 }
 
-// GTree returns a tabbed pane object with default values.
-func GTree() *GTree {
-	return gtree{selection: p.Single, angle: false}
+// NewTree returns a tree structure with default values.
+func NewTree() GTree {
+	return &gtree{selection: p.Single, angle: false}
 }

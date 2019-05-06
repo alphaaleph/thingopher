@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package items handles all widgets that can hold data.
 package items
 
@@ -5,14 +9,13 @@ import (
 	i "ebonynaranja.com/thingopher/widgets/input"
 )
 
-// GNode is the exported implementation of the node widget
+// GNode holds the data of single entry in a tree branch.
 type GNode interface{}
 
 /*
-gnode widget is the representation of a form's data node.
+gnode parameters:
 
-	Parameters:
-		combobox	: name, enabled, text, icon, alignment, tooltip, and property parameters similar to gcombobox.
+		GComboBox	: @see gcombobox.
 		selected	: True if currently selected. Default = false.
 		expanded 	: Ensures that the node is expanded if true, otherwise collapsed. Default = true.
 
@@ -29,12 +32,12 @@ gnode widget is the representation of a form's data node.
 		</gtree>
 */
 type gnode struct {
-	combobox i.GComboBox
+	i.GComboBox
 	selected bool
 	expanded bool
 }
 
-// GNode returns a node object with default values.
-func GNode() *GNode {
-	return gtree{selected: false, expanded: true}
+// NewNode returns a node structure with default values.
+func NewNode() GNode {
+	return &gnode{selected: false, expanded: true}
 }

@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package layouts handles all panel related widgets.
 package layouts
 
@@ -6,16 +10,14 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GDialog is the exported implementation of the dialog widget
+// GDialog is similar to panel, but it has a border and title, and you can drag it.
 type GDialog interface{}
 
 /*
-gdialog widget is the representation of a form's dialog.
+gdialog parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
-		panel		: columns, top, left, bottom, right, and gap parameters from gpanel.
+		GComponent	: @see gcomponent.
+		GPanel		: @see gpanel.
 		icon        : An image to be displayed in the titlebar of the dialog.
 		modal       : A modal dialog grabs all the input to the components behind the dialog from the user.
 						Default = false.
@@ -24,13 +26,11 @@ gdialog widget is the representation of a form's dialog.
 		maximizable : Set whether the dialog can be maximized by a button. Default = false.
 		iconifiable	: Set whether the dialog can be iconified by a button. Default = false.
 		text        : The title is displayed in the title bar.
-
-	gdialog is similar to panel, but it has border and title, and you can drag it.
 */
 type gdialog struct {
-	component   w.GComponent
-	Panel       GPanel
-	icon        p.GIcon
+	w.GComponent
+	GPanel
+	icon        p.Icon
 	modal       bool
 	resizable   bool
 	closable    bool
@@ -39,7 +39,7 @@ type gdialog struct {
 	text        string
 }
 
-// GDialog returns a dialog object with default values.
-func GDialog() *GDialog {
-	return gdialog{modal: false, resizable: false, closable: false, maximizable: false, iconifiable: false}
+// NewDialog returns a dialog structure with default values.
+func NewDialog() GDialog {
+	return &gdialog{modal: false, resizable: false, closable: false, maximizable: false, iconifiable: false}
 }

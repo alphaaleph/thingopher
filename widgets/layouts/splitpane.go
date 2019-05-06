@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package layouts handles all panel related widgets.
 package layouts
 
@@ -6,15 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GSplitPane is the exported implementation of the separator widget
+// GSplitPane allows to divide components.
 type GSplitPane interface{}
 
 /*
-gsplitpane widget is the representation of a form's split pane.
+gsplitpane parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
+		GComponent	: @see gcomponent.
 		orientation	: The splitpane orientation is either horizontal or vertical. Default = horizontal.
 		divider		: The location of the divider. A negative value implies the divider should be reset to a value that
 						attempts to honor the preferred size of the two components. Default = -1.
@@ -27,12 +29,12 @@ gsplitpane widget is the representation of a form's split pane.
 		</gsplitpane>
 */
 type gsplitpane struct {
-	component   w.GComponent
-	orientation p.GOrientation
+	w.GComponent
+	orientation p.Orientation
 	divider     int
 }
 
-// GSplitPane returns a panel object with default values.
-func GSplitPane() *GSplitPane {
-	return gsplitpane{orientation: p.Horizontal, divider: -1}
+// NewSplitPane returns a split panel structure with default values.
+func NewSplitPane() GSplitPane {
+	return &gsplitpane{orientation: p.Horizontal, divider: -1}
 }

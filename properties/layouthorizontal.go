@@ -1,60 +1,43 @@
-// Package properties defines some of the types used by the widgets parameters.
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
+// Package properties defines types used by the widgets parameters.
 package properties
 
-import "strings"
-
-//ChoiceHorizontal defines the various widget horizontal aligments.
-type ChoiceHorizontal uint8
+// LayoutHorizontal defines the various widget horizontal aligments.
+type LayoutHorizontal uint8
 
 /*
-	CHFill indicates that the component will use all the space.
-	CHCenter indicates that the component will centered in the total space.
-	CHLeft indicates that the component will be aligned on the left side.
-	CHRight indicates that the component will be aligned on the right side.
+	HFill indicates that the component will use all the space.
+	HCenter indicates that the component will centered in the total space.
+	HLeft indicates that the component will be aligned on the left side.
+	HRight indicates that the component will be aligned on the right side.
 */
 const (
-	CHFill   ChoiceHorizontal = iota // 0x00
-	CHCenter                         // 0x01
-	CHLeft                           // 0x02
-	CHRight                          // 0x03
+	HFill   LayoutHorizontal = iota // 0x00
+	HCenter                         // 0x01
+	HLeft                           // 0x02
+	HRight                          // 0x03
 )
 
-//Text return the string representation of the horizontal choice.
-func (ch ChoiceHorizontal) Text() string {
-	switch ch {
-	case CHFill:
-		return "FILL"
-	case CHCenter:
-		return "CENTER"
-	case CHLeft:
-		return "LEFT"
-	case CHRight:
-		return "RIGHT"
+//Text returns the string representation of the horizontal layout.
+func (lh LayoutHorizontal) Text() string {
+	switch lh {
+	case HFill:
+		return "Fill"
+	case HCenter:
+		return "Center"
+	case HLeft:
+		return "Left"
+	case HRight:
+		return "Right"
 	default:
 		return ""
 	}
 }
 
-//List returns a comma delimeted list of choice horizontal strings.
-func (ch ChoiceHorizontal) List() string {
-	list := ""
-
-	//horizontal choices
-	choiceHorizontal := map[ChoiceHorizontal]string{
-		CHFill:   "FILL",
-		CHCenter: "CENTER",
-		CHLeft:   "LEFT",
-		CHRight:  "RIGHT",
-	}
-
-	//set text
-	for key, value := range choiceHorizontal {
-		if (ch & key) != 0 {
-			list += value + ","
-		}
-	}
-
-	//remove the last comma and return the value
-	list = strings.TrimSuffix(list, ",")
-	return list
+//List returns a slice of horizontal layout strings.
+func (lh LayoutHorizontal) List() []string {
+	return []string{HFill.Text(), HCenter.Text(), HLeft.Text(), HRight.Text()}
 }

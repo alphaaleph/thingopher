@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package layouts handles all panel related widgets.
 package layouts
 
@@ -6,15 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GPanel is the exported implementation of the panel widget
+// GPanel supports the grouping of several widgets together.
 type GPanel interface{}
 
 /*
-gpanel widget is the representation of a form's panel.
+gpanel parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
+		GComponent	: @see gcomponent.
 		icon       	: The icon image that the dialog title displays.
 		columns    	: Specifies the number of available cells in a row. Default 0 value specifies 1 row and unlimited
 						cell columns. Default = 0.
@@ -42,8 +44,8 @@ gpanel widget is the representation of a form's panel.
 		</gpanel>
 */
 type gpanel struct {
-	component  w.GComponent
-	icon       p.GIcon
+	w.GComponent
+	icon       p.Icon
 	columns    uint16
 	top        uint8
 	left       uint8
@@ -55,7 +57,7 @@ type gpanel struct {
 	text       string
 }
 
-// GPanel returns a panel object with default values.
-func GPanel() *GPanel {
-	return gpanel{border: false, scrollable: false}
+// NewPanel returns a panel structure with default values.
+func NewPanel() GPanel {
+	return &gpanel{border: false, scrollable: false}
 }

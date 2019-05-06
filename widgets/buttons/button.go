@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package buttons manage all related button widgets
 package buttons
 
@@ -6,15 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GButton interface exported instead of the struct
+// GButton supports push button single functionality to trigger an event.
 type GButton interface{}
 
 /*
-gbutton widget is the representation of a form's button.
+gbutton parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from component.
+		GComponent	: @see gcomponent.
 		icon		: The icon image that the checkbox displays.
 		mnemonic 	: Specifies the index of underlined char and a key combination (Alt + the char) which invokes the
 						(not necessarily focused, but enabled and visible) button's action listener. Default = -1.
@@ -33,15 +35,15 @@ gbutton widget is the representation of a form's button.
 		<gbutton text="www.thinlet.com" type="link" action="goHome" />
 */
 type gbutton struct {
-	component w.GComponent
-	icon      p.GIcon
+	w.GComponent
+	icon      p.Icon
 	mnemonic  int
-	alignment p.GAlignment
-	category  p.GCategory
+	alignment p.Alignment
+	category  p.Category
 	text      string
 }
 
-// GButton returns a button object with default values.
-func GButton() *GButton {
-	return gbutton{alignment: p.ACenter, category: p.CNormal, mnemonic: -1}
+// NewButton returns a button structure with default values.
+func NewButton() GButton {
+	return &gbutton{alignment: p.ACenter, category: p.CNormal, mnemonic: -1}
 }

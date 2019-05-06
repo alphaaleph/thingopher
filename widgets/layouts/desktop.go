@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package layouts handles all panel related widgets.
 package layouts
 
@@ -5,25 +9,21 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GDesktop is the exported implementation of the desktop widget
+// GDesktop is the root pane, it contains components (mainly panels, these fill the available space), dialogs
+// (centered), combolists, popupmenus, and tooltips. You can add only components and dialogs to desktop, the last will
+// be on the top. Desktop is also suitable to create MDI applications.
 type GDesktop interface{}
 
 /*
-gdesktop widget is the representation of a form's desktop.
+gdesktop parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
-
-	gdesktop is the root pane, it contains components (mainly panels, these fill the available space), dialogs
-	(centered), combolists, popupmenus, and tooltips. You can add only components and dialogs to desktop, the last will
-	be on the top. Desktop is also suitable to create MDI applications.
+		GComponent	: @see gcomponent.
 */
 type gdesktop struct {
-	component w.GComponent
+	w.GComponent
 }
 
-// GDesktop returns a desktop object with default values.
-func GDesktop() *GDesktop {
-	return gdesktop{}
+// NewDesktop returns a desktop structure with default values.
+func NewDesktop() GDesktop {
+	return &gdesktop{}
 }

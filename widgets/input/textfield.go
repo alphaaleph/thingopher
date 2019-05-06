@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package input handles all widgets that are used to collect information.
 package input
 
@@ -6,21 +10,19 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GTextField is the exported implementation of the text area widget
+// GTextField enables the user to enter text information.
 type GTextField interface{}
 
 /*
-gtextfield widget is the representation of a form's data collection text area.
+gtextfield parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
-		alignment	: The alignment of the text content along the X axis. Possible values are: left, center, and right.
-						Default = left.
+		GComponent	: @see gcomponent
 		end			: End index of the selection, same as the caret position. Default = 0.
 		start		: Start index of the selection. Default = 0.
 		columns		: The preferred width of the component is fixed (if 0) or calculated by the given value.
 						Default = 0.
+		alignment	: The alignment of the text content along the X axis. Possible values are: left, center, and right.
+						Default = left.
 		editable	: The specified boolean to indicate whether or not this textfield should be editable. A
 						non-editable field is focusable, and selectable. Default = true.
 		text		: The text contained in this textarea. Default = ""
@@ -31,7 +33,7 @@ gtextfield widget is the representation of a form's data collection text area.
 		<gtextfield text="TextField" columns="10" />
 */
 type gtextfield struct {
-	component w.GComponent
+	w.GComponent
 	end       uint
 	start     uint
 	columns   uint16
@@ -40,7 +42,7 @@ type gtextfield struct {
 	text      string
 }
 
-// GTextField returns a slider object with default values.
-func GTextField() *GTextField {
-	return gtextfield{alignment: p.Left, editable: true}
+// NewTextField returns a text field structure with default values.
+func NewTextField() GTextField {
+	return &gtextfield{alignment: p.ALeft, editable: true}
 }

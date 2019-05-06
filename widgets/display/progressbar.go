@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package display manage all non-input widgets.
 package display
 
@@ -6,15 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GProgressBar is the exported implementation of the progress bar widget
+// GProgressBar is used to measured a predetermine amount of time, or work steps.
 type GProgressBar interface{}
 
 /*
-gprogressbar widget is the representation of a form's progress bar.
+gprogressbar parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from component.
+		GComponent	: @see gcomponent.
 		orientation	: Possible values are: horizontal, and vertical. Default = horizontal.
 		minimum		: The progressbar's minimum value. Default = 0.
 		maximum		: The progressbar's maximum value. Default = 100.
@@ -27,14 +29,14 @@ gprogressbar widget is the representation of a form's progress bar.
 		<gprogressbar minimum="25" maximum="75" value="50" orientation="vertical" />
 */
 type gprogressbar struct {
-	component   w.GComponent
-	orientation p.GOrientation
+	w.GComponent
+	orientation p.Orientation
 	minimum     uint8
 	maximum     uint8
 	value       uint8
 }
 
-// GProgressBar returns a progress bar object with default values.
-func GProgressBar() *GProgressBar {
-	return gprogressbar{orientation: p.Horizontal, maximum: 100}
+// NewProgressBar returns a progress bar structure with default values.
+func NewProgressBar() GProgressBar {
+	return &gprogressbar{orientation: p.Horizontal, maximum: 100}
 }

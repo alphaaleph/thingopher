@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package buttons manage all related button widgets
 package buttons
 
@@ -6,15 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GCheckBox is the exported implementation of the checkbox widget
+// GCheckBox supports the use of single/multiple choice.
 type GCheckBox interface{}
 
 /*
-gcheckbox widget is the representation of a form's check box.
+gcheckbox parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from component.
+		GComponent	: @see gcomponent.
 		icon		: The icon image that the checkbox displays.
 		mnemonic	: Specifies the index of underlined char and a key combination (Alt + char) which change the
 						checkboxs's state and invokes the action listener. Default = -1.
@@ -35,15 +37,15 @@ gcheckbox widget is the representation of a form's check box.
 */
 type gcheckbox struct {
 	component w.GComponent
-	icon      p.GIcon
+	icon      p.Icon
 	mnemonic  int
-	alignment p.GAligment
+	alignment p.Alignment
 	selected  bool
 	group     string
 	text      string
 }
 
-// GCheckBox returns a check box object with default values.
-func GCheckBox() *GCheckBox {
-	return gcheckbox{selected: false, alignment: p.ACenter, mnemonic: -1}
+// NewCheckBox returns a check box structure with default values.
+func NewCheckBox() GCheckBox {
+	return &gcheckbox{selected: false, alignment: p.ACenter, mnemonic: -1}
 }

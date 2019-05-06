@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package layouts handles all panel related widgets.
 package layouts
 
@@ -6,14 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GTabbedPane is the exported implementation of the tabbed pane widget
+// GTabbedPane provides a panel that can have multiple tabs.
 type GTabbedPane interface{}
 
 /*
-TabbedPane widget is the representation of a form's tabbed pane.
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
+gtabbedpane parameters:
+
+		GComponent	: @see gcomponent.
 		placement 	: The placement for the tabs relative to the content. Possible values are: top, left, bottom,
 						right, and stack. The stack placement arranges tabs so that they resemble a sidebar.
 						Default = top.
@@ -37,12 +40,12 @@ TabbedPane widget is the representation of a form's tabbed pane.
 		</gtabbedpane>
 */
 type gtabbedpane struct {
-	component w.GComponent
-	placement p.GPlacement
+	w.GComponent
+	placement p.Placement
 	selected  int
 }
 
-// GTabbedPane returns a tabbed pane object with default values.
-func GTabbedPane() *GTabbedPane {
-	return gtabbedpane{placement: p.Top}
+// NewTabbedPane returns a tabbed pane structure with default values.
+func NewTabbedPane() GTabbedPane {
+	return &gtabbedpane{placement: p.Top}
 }

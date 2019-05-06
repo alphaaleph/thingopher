@@ -1,26 +1,27 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package properties defines some of the types used by the widgets parameters.
 package properties
 
-//GSelection defines the various widget selections.
-type GSelection uint8
+// Selection defines the various widget selections.
+type Selection uint8
 
 /*
-	Single
-	Interval
-	Multiple
-	ACenter indicates that the text will be centered in the widget.
-	ALeft indicates that the text will be aligned on the left side of the widget.
-	ARight indicates that the text will be aligned on the right side of the widget.
+	Single selects a single entry in a list.
+	Interval selects multiple entries in a list non-consecutively.
+	Multiple selects multiple entries in a list consecutively.
 */
 const (
-	Single   GSelection = iota // 0x00
-	Interval                   // 0x01
-	Multiple                   // 0x02
+	Single   Selection = iota // 0x00
+	Interval                  // 0x01
+	Multiple                  // 0x02
 )
 
 //Text returns the string representation of the selection choice.
-func (gal GSelection) Text() string {
-	switch gal {
+func (sel Selection) Text() string {
+	switch sel {
 	case Single:
 		return "Single"
 	case Interval:
@@ -33,6 +34,6 @@ func (gal GSelection) Text() string {
 }
 
 //List returns a slice of selection strings.
-func (gal GSelection) List() []string {
+func (sel Selection) List() []string {
 	return []string{Single.Text(), Interval.Text(), Multiple.Text()}
 }

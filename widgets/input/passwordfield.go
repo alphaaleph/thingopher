@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package input handles all widgets that are used to collect information.
 package input
 
@@ -5,27 +9,25 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GPasswordField is the exported implementation of the password field widget
+// GPasswordField allows the user to enter information without showing the actual characters.
 type GPasswordField interface{}
 
 /*
-gpasswordfield widget is the representation of a form's data collection password field.
+gpasswordfield parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
-		textfield	: text, columns, editable, and aligment parameters from gtextfield.
+		GComponent	: @see gcomponent
+		GTextField	: @see gtextfield
 
 	PasswordField is similar to TextField component, but does not show the original characters.
 
 		<gpasswordfield text="secret value" />
 */
 type gpasswordfield struct {
-	component w.GComponent
-	textfield GTextField
+	w.GComponent
+	GTextField
 }
 
-// GPasswordField returns a password field object with default values.
-func GPasswordField() *GPasswordField {
-	return gpasswordfield{}
+// NewPasswordField returns a password field structure with default values.
+func NewPasswordField() GPasswordField {
+	return &gpasswordfield{}
 }

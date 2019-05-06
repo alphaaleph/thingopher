@@ -1,3 +1,7 @@
+// Copyright 2019 EbonyNaranja. All rights reserved.
+// Use of this source code is governed by a LGPL
+// license that can be found in the LICENSE file.
+
 // Package input handles all widgets that are used to collect information.
 package input
 
@@ -6,15 +10,13 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GMenuBar is the exported implementation of the menu bar widget
+// GMenuBar offers a selection of choices based on different contexts.
 type GMenuBar interface{}
 
 /*
-gmenubar widget is the representation of a form's data collection menu bar.
+gmenubar parameters:
 
-	Parameters:
-		component	: name, enabled, visible, tooltip, property, i18n, width, height, colspan, rowspan, weightx,
-						weighty, halign, and valign parameters from gcomponent.
+		GComponent	: @see gcomponent.
 		placement	: Menubar may unfold the menus either downwards (default - for menubars placed at the top of the
 						container), or upwards from the menubar position (bottom - for menubars placed at the bottom of
 						the container).
@@ -38,11 +40,11 @@ gmenubar widget is the representation of a form's data collection menu bar.
 		</gpanel>
 */
 type gmenubar struct {
-	component w.GComponent
+	w.GComponent
 	placement p.Placement
 }
 
-// GMenuBar returns a menu bar object with default values.
-func GMenuBar() *GMenuBar {
-	return gmenubar{placement: p.Top}
+// NewMenuBar returns a menu bar structure with default values.
+func NewMenuBar() GMenuBar {
+	return &gmenubar{placement: p.Top}
 }
