@@ -6,12 +6,16 @@
 package buttons
 
 import (
+	"encoding/xml"
+
 	p "ebonynaranja.com/thingopher/properties"
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
 // GButton supports push button single functionality to trigger an event.
-type GButton interface{}
+type GButton interface {
+	Action()
+}
 
 /*
 gbutton parameters:
@@ -26,7 +30,7 @@ gbutton parameters:
 		category	: Possible values are: normal, default, cancel, and link. The default value is normal. Default, and
 						cancel values are for dialog control. Link changes the appearance of button so that it
 						resembles HTML link. Default = normal.
-		text		: The text string that the button displays.
+		Text		: The text string that the button displays.
 
 	The following button displays a short text string and an image. Its content is on the left and centered vertically.
 	The second button resembles an HTML link, and when pressed invokes the method goHome.
@@ -36,14 +40,22 @@ gbutton parameters:
 */
 type gbutton struct {
 	w.GComponent
-	icon      p.Icon
-	mnemonic  int
-	alignment p.Alignment
-	category  p.Category
-	text      string
+	XMLName   xml.Name    `xml:"gbutton"`
+	Icon      p.Icon      `xml:"icon,attr"`
+	Mnemonic  int         `xml:"mnemonic,attr"`
+	Alignment p.Alignment `xml:"alignment,attr"`
+	Category  p.Category  `xml:"category,attr"`
+	Text      string      `xml:"text,attr"`
 }
 
 // NewButton returns a button structure with default values.
 func NewButton() GButton {
-	return &gbutton{alignment: p.ACenter, category: p.CNormal, mnemonic: -1}
+	return &gbutton{Alignment: p.ACenter, Category: p.CNormal, Mnemonic: -1}
+}
+
+// Listeners
+
+// Action invokes the given method when the button is pressed by mouse or keyboard.
+func (gb gbutton) Action() {
+
 }
