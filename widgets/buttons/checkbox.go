@@ -22,7 +22,7 @@ GCheckBox supports the use of single/multiple choice.
 		{"gcheckbox":{"text":"RadioButton-on","group":"group","selected"="true"}}
 		{"gcheckbox":{"text":"RadioButton","group":"group"}}
 
-	Parameters:
+	Properties:
 		Icon		: The icon image that the checkbox displays.
 		Mnemonic	: Specifies the index of underlined char and a key combination (Alt + char) which change the
 						checkboxs's state and invokes the action listener. Default = -1.

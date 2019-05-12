@@ -21,7 +21,7 @@ GButton supports push button single functionality to trigger an event.
 		{"gbutton":{"text":"Button","icon":"image.gif","alignment":"left","tooltip":"ToolTip"}}
 		{"gbutton":{"text":"www.thinlet.com","type":"link","action":"goHome"}}
 
-	Parameters:
+	Properties:
 		Icon		: The icon image that the checkbox displays.
 		Mnemonic 	: Specifies the index of underlined char and a key combination (Alt + the char) which invokes the
 						(not necessarily focused, but enabled and visible) button's action listener. Default = -1.

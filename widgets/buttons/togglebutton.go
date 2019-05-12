@@ -17,7 +17,7 @@ GToggleButton is used to display checked/unchecked states.
 		{"gtogglebutton":{"text":"ToggleButton","icon":"image.gif","selected":"true"}}
 		{"gtogglebutton":{"text":"ToggleButton","group":"group"}}
 
-	Parameters:
+	Properties:
 		GCheckBox	: @see GCheckBox.
 		GComponent	: @see GComponent.
 
