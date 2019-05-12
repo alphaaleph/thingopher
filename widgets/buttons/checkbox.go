@@ -55,7 +55,7 @@ type GCheckBox struct {
 
 // DefaultCheckBox returns a check box structure with default values.
 func DefaultCheckBox() *GCheckBox {
-	return &GCheckBox{selected: false, alignment: p.ACenter, mnemonic: -1}
+	return &GCheckBox{Selected: false, Alignment: p.ACenter, Mnemonic: -1}
 }
 
 // Action Invokes the given method when the checkbox state is changed by mouse or keyboard event.

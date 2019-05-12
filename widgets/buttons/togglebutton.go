@@ -9,26 +9,29 @@ import (
 	w "ebonynaranja.com/thingopher/widgets"
 )
 
-// GToggleButton is used to display checked/unchecked states.
-type GToggleButton interface{}
-
 /*
-gtogglebutton parameters:
-
-		GComponent	: @see gcomponent.
-		GCheckBox	: @see gcheckbox.
+GToggleButton is used to display checked/unchecked states.
 
 	An implementation of a two-state button, behaves as checkbox.
 
-		<gtogglebutton text="ToggleButton" icon="image.gif" selected="true"/>
-		<gtogglebutton text="ToggleButton" group="group"/>
+		{"gtogglebutton":{"text":"ToggleButton","icon":"image.gif","selected":"true"}}
+		{"gtogglebutton":{"text":"ToggleButton","group":"group"}}
+
+	Parameters:
+		GCheckBox	: @see GCheckBox.
+		GComponent	: @see GComponent.
+
+	Keyboard:
+		Spacebar	: Selects or deselects.
+		Tab			: Navigate forward.
+		ShiftTab	: Navigate backward.
 */
-type gtogglebutton struct {
-	w.GComponent
+type GToggleButton struct {
 	GCheckBox
+	w.GComponent
 }
 
-// NewToggleButton returns a toggle button structure with default values.
-func NewToggleButton() GToggleButton {
-	return &gtogglebutton{}
+// DefaultGToggleButton returns a toggle button structure with default values.
+func DefaultGToggleButton() *GToggleButton {
+	return &GToggleButton{}
 }
