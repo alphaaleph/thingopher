@@ -16,7 +16,7 @@ import (
 type GComponent interface{}
 
 /*
-gcomponent parameters:
+GComponent parameters:
 
 		GBaseComponent	: @see gbasecomponent.
 		background		: Custom background color to use, instead of the default background color. Note: for components
@@ -39,7 +39,7 @@ gcomponent parameters:
 		valign			: Vertical alignment in the cell. Possible values are: fill, center, top, and bottom.
 							Default = fill.
 */
-type gcomponent struct {
+type GComponent struct {
 	GBaseComponent
 	background color.Color
 	foreground color.Color
