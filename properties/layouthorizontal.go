@@ -21,23 +21,12 @@ const (
 	HRight                          // 0x03
 )
 
-//Text returns the string representation of the horizontal layout.
-func (lh LayoutHorizontal) Text() string {
-	switch lh {
-	case HFill:
-		return "Fill"
-	case HCenter:
-		return "Center"
-	case HLeft:
-		return "Left"
-	case HRight:
-		return "Right"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (lh LayoutHorizontal) String() string {
+	return [...]string{"Fill", "Center", "Left", "Right"}[lh]
 }
 
 //List returns a slice of horizontal layout strings.
 func (lh LayoutHorizontal) List() []string {
-	return []string{HFill.Text(), HCenter.Text(), HLeft.Text(), HRight.Text()}
+	return []string{HFill.String(), HCenter.String(), HLeft.String(), HRight.String()}
 }

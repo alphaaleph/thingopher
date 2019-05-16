@@ -19,21 +19,12 @@ const (
 	Multiple                  // 0x02
 )
 
-//Text returns the string representation of the selection choice.
-func (sel Selection) Text() string {
-	switch sel {
-	case Single:
-		return "Single"
-	case Interval:
-		return "Interval"
-	case Multiple:
-		return "Multiple"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (sel Selection) String() string {
+	return [...]string{"Single", "Interval", "Multiple"}[sel]
 }
 
 //List returns a slice of selection strings.
 func (sel Selection) List() []string {
-	return []string{Single.Text(), Interval.Text(), Multiple.Text()}
+	return []string{Single.String(), Interval.String(), Multiple.String()}
 }

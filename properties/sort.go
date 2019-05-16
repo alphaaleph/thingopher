@@ -19,21 +19,12 @@ const (
 	Descent             // 0x02
 )
 
-//Text returns the string representation of the selection choice.
-func (st Sort) Text() string {
-	switch st {
-	case None:
-		return "None"
-	case Ascent:
-		return "Ascent"
-	case Descent:
-		return "Descent"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (st Sort) String() string {
+	return [...]string{"None", "Ascent", "Descent"}[st]
 }
 
 //List returns a slice of sort strings.
 func (st Sort) List() []string {
-	return []string{None.Text(), Ascent.Text(), Descent.Text()}
+	return []string{None.String(), Ascent.String(), Descent.String()}
 }

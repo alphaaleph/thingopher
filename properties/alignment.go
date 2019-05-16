@@ -19,21 +19,12 @@ const (
 	ARight                   // 0x02
 )
 
-//Text returns the string representation of the alignment choice.
-func (al Alignment) Text() string {
-	switch al {
-	case ACenter:
-		return "Center"
-	case ALeft:
-		return "Left"
-	case ARight:
-		return "Right"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (al Alignment) String() string {
+	return [...]string{"Center", "Left", "Right"}[al]
 }
 
 //List returns a slice of alignment strings.
 func (al Alignment) List() []string {
-	return []string{ACenter.Text(), ALeft.Text(), ARight.Text()}
+	return []string{ACenter.String(), ALeft.String(), ARight.String()}
 }

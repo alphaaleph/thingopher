@@ -17,19 +17,12 @@ const (
 	Bottom                  // 0x01
 )
 
-//Text returns the string representation of the placement choice.
-func (pl Placement) Text() string {
-	switch pl {
-	case Top:
-		return "Top"
-	case Bottom:
-		return "Bottom"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (pl Placement) String() string {
+	return [...]string{"Top", "Bottom"}[pl]
 }
 
 //List returns a slice of placement strings.
 func (pl Placement) List() []string {
-	return []string{Top.Text(), Bottom.Text()}
+	return []string{Top.String(), Bottom.String()}
 }

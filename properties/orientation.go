@@ -17,19 +17,12 @@ const (
 	Vertical                      // 0x01
 )
 
-//Text returns the string representation of the orientation choice.
-func (orn Orientation) Text() string {
-	switch orn {
-	case Horizontal:
-		return "Horizontal"
-	case Vertical:
-		return "Vertical"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (orn Orientation) String() string {
+	return [...]string{"Horizontal", "Vertical"}[orn]
 }
 
 //List returns a slice of orientation strings.
 func (orn Orientation) List() []string {
-	return []string{Horizontal.Text(), Vertical.Text()}
+	return []string{Horizontal.String(), Vertical.String()}
 }

@@ -21,23 +21,12 @@ const (
 	VBottom                       // 0x03
 )
 
-//Text returns the string representation of the vertical layout.
-func (lv LayoutVertical) Text() string {
-	switch lv {
-	case VFill:
-		return "Fill"
-	case VCenter:
-		return "Center"
-	case VTop:
-		return "Top"
-	case VBottom:
-		return "Bottom"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (lv LayoutVertical) String() string {
+	return [...]string{"Fill", "Center", "Top", "Bottom"}[lv]
 }
 
 //List returns a slice of vertical layout strings.
 func (lv LayoutVertical) List() []string {
-	return []string{VFill.Text(), VCenter.Text(), VTop.Text(), VBottom.Text()}
+	return []string{VFill.String(), VCenter.String(), VTop.String(), VBottom.String()}
 }

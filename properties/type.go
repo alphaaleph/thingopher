@@ -21,23 +21,12 @@ const (
 	TLink                // 0x03
 )
 
-//Text returns the string representation of the widget's type.
-func (t Type) Text() string {
-	switch t {
-	case TNormal:
-		return "Normal"
-	case TDefault:
-		return "Default"
-	case TCancel:
-		return "Cancel"
-	case TLink:
-		return "Link"
-	default:
-		return ""
-	}
+//String return a string representation of one of the enumerations
+func (t Type) String() string {
+	return [...]string{"Normal", "Default", "Cancel", "Link"}[t]
 }
 
 //List returns a slice of type strings.
 func (t Type) List() []string {
-	return []string{TNormal.Text(), TDefault.Text(), TCancel.Text(), TLink.Text()}
+	return []string{TNormal.String(), TDefault.String(), TCancel.String(), TLink.String()}
 }
